@@ -167,4 +167,4 @@ LOGIN_URL = 'login'
 # Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-django_heroku.settings(locals())
+django_heroku.settings(locals(), staticfiles=False)
