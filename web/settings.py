@@ -138,7 +138,7 @@ STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'web/static')]
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 AWS_ACCESS_KEY_ID = 'AKIAYL2ZDYLEHVZRVMZP'
 AWS_SECRET_ACCESS_KEY = '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'
@@ -148,7 +148,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
-
+AWS_PUBLIC_MEDIA_LOCATION = 'media'
 
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -169,3 +169,4 @@ LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 django_heroku.settings(locals(), staticfiles=False)
+
