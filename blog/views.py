@@ -87,6 +87,9 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
+def dashboard(request):
+    return render(request, 'blog/dashboard.html', {'title': 'Dashboard'})
+
 
 @login_required
 def add_comment(request, pk):
