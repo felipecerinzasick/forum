@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3$!e5*ggej1g%8n!d77u^5jk$qy&_p_6r_gc2+mdu(2v1-&c%@'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['*']
 
@@ -171,9 +171,9 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR, 'web/static')]
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
 
-AWS_ACCESS_KEY_ID = 'AKIAYL2ZDYLEHVZRVMZP'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'sick-leads'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
