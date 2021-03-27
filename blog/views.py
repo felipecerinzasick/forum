@@ -17,7 +17,7 @@ from django.views.generic import (
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/index.html'
+    template_name = 'blog/blog.html'
     context_object_name = 'posts'
     paginate_by = 5
 
@@ -86,6 +86,12 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+def blog(request):
+        return render(request, 'blog/blog.html', {'title': 'Blog'})
+
+def index(request):
+        return render(request, 'blog/index.html', {'title': 'Index'})
 
 def dashboard(request):
     return render(request, 'blog/dashboard.html', {'title': 'Dashboard'})
