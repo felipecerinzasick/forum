@@ -5,9 +5,12 @@ from users import views as user_views
 
 from django.conf import settings
 from django.conf.urls.static import static
+from machina import urls as machina_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #forum urls
+    path('forum/', include(machina_urls)),
     # API urls
     path('api-blog/', include('blog.api.urls')),
     # Blog urls

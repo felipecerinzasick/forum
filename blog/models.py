@@ -17,7 +17,7 @@ class PostManager(models.Manager):
 
 class Post(models.Model):
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+        settings.AUTH_USER_MODEL, related_name='auther_posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
     liked = models.ManyToManyField(

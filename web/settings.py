@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import django_heroku
 import os
+from machina import MACHINA_MAIN_TEMPLATE_DIR
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = True#(os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['*']
 
@@ -75,6 +76,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
+    # Machina dependencies:
+    'mptt',
+    'haystack',
+    'widget_tweaks',
+
+    # Machina apps:
+    'machina',
+    'machina.apps.forum',
+    'machina.apps.forum_conversation',
+    'machina.apps.forum_conversation.forum_attachments',
+    'machina.apps.forum_conversation.forum_polls',
+    'machina.apps.forum_feeds',
+    'machina.apps.forum_moderation',
+    'machina.apps.forum_search',
+    'machina.apps.forum_tracking',
+    'machina.apps.forum_member',
+    'machina.apps.forum_permission',
 
 ]
 
@@ -87,6 +105,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Machina
+    'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
 ]
 
 ROOT_URLCONF = 'web.urls'
@@ -94,15 +114,23 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/machina'),
+            MACHINA_MAIN_TEMPLATE_DIR,],
+        #'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Machina
+                'machina.core.context_processors.metadata',
             ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ]
         },
     },
 ]
@@ -130,7 +158,20 @@ DATABASES = {
         'PORT': '5432',
     }
 }"""
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    'machina_attachments': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp',
+    },
+}
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -165,9 +206,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+from machina import MACHINA_MAIN_STATIC_DIR
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[os.path.join(BASE_DIR, 'web/static')]
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR, 'web/static'),
+    MACHINA_MAIN_STATIC_DIR]
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
 
@@ -199,4 +243,7 @@ LOGIN_URL = 'login'
 # Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Machina settings
+MACHINA_FORUM_NAME = "Sick Blog"
 django_heroku.settings(locals(), staticfiles=False)
