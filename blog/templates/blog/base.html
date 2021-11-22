@@ -65,7 +65,7 @@
   </header>
   <main role="main" class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -74,18 +74,6 @@
         {% endfor %}
         {% endif %}
         {% block content %}{% endblock %}
-      </div>
-      <div class="col-md-4">
-        <div class="content-section">
-          <h3>Recent News:</h3>
-          <p class='text-muted'>Sick Leads is officially live. A start of a great adventure!
-            <br>
-            <br>
-              <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'about' %}">Find out more!</a>
-
-            </ul>
-          </p>
-        </div>
       </div>
     </div>
   </main>
