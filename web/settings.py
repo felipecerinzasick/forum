@@ -75,11 +75,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'storages',
     # Machina dependencies:
     'mptt',
     'haystack',
     'widget_tweaks',
+    # newsletter
+    
+    'sorl.thumbnail',
+    'newsletter',
+    'tinymce',
 
     # Machina apps:
     'machina',
@@ -246,4 +252,22 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Machina settings
 MACHINA_FORUM_NAME = "Sick Blog"
+
+NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
+NEWSLETTER_CONFIRM_EMAIL = False
+NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "500px",
+    "width": "700px",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,  # To force a specific language instead of the Django current language.
+}
+SITE_ID = 1
 django_heroku.settings(locals(), staticfiles=False)

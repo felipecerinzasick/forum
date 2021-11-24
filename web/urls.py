@@ -11,6 +11,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #forum urls
     path('forum/', include(machina_urls)),
+    path('newsletter/', include('newsletter.urls')),
+    path('tinymce/', include('tinymce.urls')),
     # API urls
     path('api-blog/', include('blog.api.urls')),
     # Blog urls
