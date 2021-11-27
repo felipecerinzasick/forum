@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import django_heroku
 import os
 from machina import MACHINA_MAIN_TEMPLATE_DIR
+from django.utils.translation import gettext_lazy as _
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -94,6 +95,9 @@ INSTALLED_APPS = [
     'machina.apps.forum_member',
     'machina.apps.forum_permission',
 
+    #translation_manager
+    'translation_manager',
+
 ]
 
 MIDDLEWARE = [
@@ -107,7 +111,38 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Machina
     'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
+
+    #Translation
+    "django.middleware.locale.LocaleMiddleware",
 ]
+
+
+
+# If you set this to False, Django will make some optimizations so as not
+# to load the internationalization machinery.
+# True if you want to support localization
+USE_I18N = True
+
+# Default languages
+LANGUAGE_CODE = "de"
+
+# Provide a lists of languages which your site supports.
+LANGUAGES = (
+    ('de', _('German')),
+    ('en', _('English')),
+)
+
+# If you set this to False, Django will not format dates, numbers and
+# Use calendars according to the current locale.
+USE_L10N = True
+
+# Contains the path list where Django should look into for django.po files for all supported languages
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+
+
 
 ROOT_URLCONF = 'web.urls'
 
