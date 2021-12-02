@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n%}
 <!DOCTYPE html>
 <html>
 
@@ -35,7 +36,7 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand mr-4" href="{% url 'index' %}">Sick Leads </a>
+        <a class="navbar-brand mr-4" href="{% url 'index' %}">{% trans "Sick Leads " %}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -47,6 +48,7 @@
             <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
             <a class="nav-item nav-link" href="{% url 'blog' %}">Blog</a>
             <a class="nav-item nav-link" href="/forum">Forum</a>
+            
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
@@ -58,6 +60,15 @@
             <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
             <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
             {% endif %}
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Language
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'en' %}">Eng</a>
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'hi' %}">Hindi</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

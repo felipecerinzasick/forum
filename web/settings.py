@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import django_heroku
 import os
 from machina import MACHINA_MAIN_TEMPLATE_DIR
+from django.utils.translation import gettext_lazy as _
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -99,6 +100,7 @@ INSTALLED_APPS = [
     'machina.apps.forum_tracking',
     'machina.apps.forum_member',
     'machina.apps.forum_permission',
+    "translation_manager",
 
 ]
 
@@ -106,6 +108,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -200,7 +203,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'hi'
 
 TIME_ZONE = 'UTC'
 
@@ -210,6 +213,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('hi', _('Hindi')),
+    ('en', _('English')),
+)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 from machina import MACHINA_MAIN_STATIC_DIR

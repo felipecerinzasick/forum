@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n%}
 <!DOCTYPE html>
 <html>
 <!-- Favicons -->
@@ -49,7 +50,7 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand mr-4" href="{% url 'index' %}"><b>Sick Leads </b></a>
+        <a class="navbar-brand mr-4" href="{% url 'index' %}"><b>{% trans "Sick Leads " %}</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
           aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -72,6 +73,15 @@
             <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'login' %}">Get started</a>
             <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
             {% endif %}
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Language
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'en' %}">Eng</a>
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'hi' %}">Hindi</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -82,8 +92,8 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>Find, Engage and Convert traffic online</h1>
-          <h2>With Strategies, Tools and a winning community.</h2>
+          <h1>{% trans "Find, Engage and Convert traffic online" %}</h1>
+          <h2>{% trans "With Strategies, Tools and a winning community." %}</h2>
         </div>
       </div>
       <div class="text-center">

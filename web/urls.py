@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as user_views
-
+from .views import set_language_from_url
 from django.conf import settings
 from django.conf.urls.static import static
 from machina import urls as machina_urls
@@ -10,6 +10,8 @@ from machina import urls as machina_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     #forum urls
+    path('i18n/', include('django.conf.urls.i18n')),
+    path("set_language/<str:user_language>/", set_language_from_url, name="set_language_from_url"),
     path('forum/', include(machina_urls)),
     path('newsletter/', include('newsletter.urls')),
     path('tinymce/', include('tinymce.urls')),

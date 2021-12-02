@@ -1,0 +1,52 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: webmaster@localhost\n"
+"POT-Creation-Date: 2021-12-02 11:43:30\n"
+"PO-Revision-Date: 2021-12-02 11:43:30\n"
+"Last-Translator: Server <root@localhost>\n"
+"Language-Team: English <webmaster@localhost>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/machina/board_base.html:32
+msgid "Advance search"
+msgstr "Advance search"
+
+#: web/settings.py:218
+msgid "English"
+msgstr "English"
+
+#: blog/templates/blog/base1.html:95
+msgid "Find, Engage and Convert traffic online"
+msgstr "Find, Engage and Convert traffic online"
+
+#: web/settings.py:217
+msgid "Hindi"
+msgstr "Hindi"
+
+#: templates/machina/board_base.html:59
+msgid "Moderation queue"
+msgstr "Moderation queue"
+
+#: templates/machina/board_base.html:29
+msgid "Search"
+msgstr "Search"
+
+#: blog/templates/blog/base.html:39
+msgid "Sick Leads "
+msgstr "Sick Leads"
+
+#: templates/machina/board_base.html:54
+msgid "Subscriptions"
+msgstr "Subscriptions"
+
+#: templates/machina/board_base.html:55
+msgid "View my posts"
+msgstr "View my posts"
+
+#: blog/templates/blog/base1.html:96
+msgid "With Strategies, Tools and a winning community."
+msgstr "With Strategies, Tools and a winning community."
