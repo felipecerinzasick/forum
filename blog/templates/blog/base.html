@@ -43,30 +43,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-            <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
-            <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            <a class="nav-item nav-link" href="{% url 'blog' %}">Blog</a>
-            <a class="nav-item nav-link" href="/forum">Forum</a>
+            <a class="nav-item nav-link" href="{% url 'index' %}">{% trans "Home" %}</a>
+            <a class="nav-item nav-link" data-hover="About" href="{% url 'index' %}#container">{% trans "About" %}</a>
+            <!-- <a class="nav-item nav-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>-->
+            <a class="nav-item nav-link" href="{% url 'blog' %}">{% trans "Blog" %}</a>
+            <a class="nav-item nav-link" href="/forum">{% trans "Forum" %}</a>
 
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-            <a class="nav-item nav-link" href="{% url 'post_create' %}">New Post</a>
-            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-item nav-link" href="{% url 'post_create' %}">{% trans "New Post" %}</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">{% trans "Profile" %}</a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
             {% else %}
-            <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'dashboard' %}">{% trans "Get started" %}</a>
+            <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
             {% endif %}
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Language
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{% url 'set_language_from_url' 'en' %}">Eng</a>
-                <a class="dropdown-item" href="{% url 'set_language_from_url' 'hi' %}">Hindi</a>
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'en' %}">Englisch</a>
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'de' %}">Deutsch</a>
               </div>
             </div>
           </div>
