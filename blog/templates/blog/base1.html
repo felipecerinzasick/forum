@@ -59,7 +59,7 @@
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link" href="{% url 'index' %}">{% trans "Home" %}</a>
             <a class="nav-item nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
-            <a class="nav-item nav-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+            <!-- <a class="nav-item nav-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>-->
             <a class="nav-item nav-link" href="{% url 'blog' %}">{% trans "Blog" %}</a>
             <a class="nav-item nav-link" href="/forum">{% trans "Forum" %}</a>
           </div>
@@ -70,16 +70,15 @@
             <a class="nav-item nav-link" href="{% url 'profile' %}">{% trans "Profile" %}</a>
             <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
             {% else %}
-            <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'login' %}">{% trans "Get started" %}</a>
+            <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'dashboard' %}">{% trans "Get started" %}</a>
             <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
             {% endif %}
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Language
+                Sprache
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{% url 'set_language_from_url' 'en' %}">Eng</a>
-                <a class="dropdown-item" href="{% url 'set_language_from_url' 'hi' %}">Hindi</a>
+                <a class="dropdown-item" href="{% url 'set_language_from_url' 'en' %}">Englisch</a>
                 <a class="dropdown-item" href="{% url 'set_language_from_url' 'de' %}">Deutsch</a>
               </div>
             </div>
@@ -98,7 +97,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="{% url 'login' %}" class="btn-get-started scrollto">{% trans "Get Started" %}</a>
+        <a href="{% url 'dashboard' %}" class="btn-get-started scrollto">{% trans "Get Started" %}</a>
       </div>
 
       <div class="row icon-boxes">
@@ -170,7 +169,7 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}">{% trans "Home" %}</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">{% trans "About" %} </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'login' %}">{% trans "Dashoard" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dashboard' %}">{% trans "Dashoard" %}</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">{% trans "Terms of service" %}</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">{% trans "Privacy policy" %}</a></li>
             </ul>
