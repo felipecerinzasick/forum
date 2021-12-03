@@ -83,7 +83,7 @@ INSTALLED_APPS = [
     'haystack',
     'widget_tweaks',
     # newsletter
-    
+
     'sorl.thumbnail',
     'newsletter',
     'tinymce',
@@ -203,7 +203,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'hi'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -216,6 +216,7 @@ USE_TZ = True
 LANGUAGES = (
     ('hi', _('Hindi')),
     ('en', _('English')),
+    ('de', _('Deutsch')),
 )
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),

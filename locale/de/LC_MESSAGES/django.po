@@ -11,42 +11,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/machina/board_base.html:32
-msgid "Advance search"
-msgstr "Advance search"
-
-#: web/settings.py:218
-msgid "English"
-msgstr "English"
-
 #: blog/templates/blog/base1.html:95
 msgid "Find, Engage and Convert traffic online"
-msgstr "Find, Engage and Convert traffic online"
-
-#: web/settings.py:217
-msgid "Hindi"
-msgstr "Hindi"
-
-#: templates/machina/board_base.html:59
-msgid "Moderation queue"
-msgstr "Moderation queue"
+msgstr "Kunden im Internet finden und konvertieren."
 
 #: templates/machina/board_base.html:29
 msgid "Search"
-msgstr "Search"
+msgstr "Suche"
 
-#: blog/templates/blog/base.html:39
+#: blog/templates/blog/base.html:39 blog/templates/blog/base1.html:53
 msgid "Sick Leads "
 msgstr "Sick Leads"
 
-#: templates/machina/board_base.html:54
-msgid "Subscriptions"
-msgstr "Subscriptions"
-
-#: templates/machina/board_base.html:55
-msgid "View my posts"
-msgstr "View my posts"
-
 #: blog/templates/blog/base1.html:96
 msgid "With Strategies, Tools and a winning community."
-msgstr "With Strategies, Tools and a winning community."
+msgstr "Mit den richtigen Systemen und Support"
