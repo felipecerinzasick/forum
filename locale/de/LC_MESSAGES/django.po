@@ -3,17 +3,116 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: webmaster@localhost\n"
-"POT-Creation-Date: 2021-12-03 13:47:06\n"
-"PO-Revision-Date: 2021-12-03 13:47:06\n"
+"POT-Creation-Date: 2021-12-03 14:06:48\n"
+"PO-Revision-Date: 2021-12-03 14:06:48\n"
 "Last-Translator: Server <root@localhost>\n"
 "Language-Team: English <webmaster@localhost>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: blog/templates/blog/base1.html:61 blog/templates/blog/base1.html:172
+msgid "About"
+msgstr "Über"
+
+#: templates/machina/board_base.html:32
+msgid "Advance search"
+msgstr "Fortgeschrittene Suche"
+
+#: blog/templates/blog/base1.html:199
+msgid "All Rights Reserved"
+msgstr "Alle Rechte vorbehalten"
+
+#: blog/templates/blog/base1.html:63
+msgid "Blog"
+msgstr "Blog"
+
+#: blog/templates/blog/base1.html:108
+msgid "Community driven"
+msgstr "Kollaboration"
+
+#: blog/templates/blog/base1.html:62
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: blog/templates/blog/base1.html:173
+msgid "Dashoard"
+msgstr "Dashboard"
+
+#: blog/templates/blog/base1.html:206
+msgid "Designed with care"
+msgstr "mit Sorgfalt entworfen"
+
+#: web/settings.py:219
+msgid "Deutsch"
+msgstr "Deutsch"
+
+#: web/settings.py:218
+msgid "English"
+msgstr "Englisch"
+
 #: blog/templates/blog/base1.html:95
 msgid "Find, Engage and Convert traffic online"
-msgstr "Kunden im Internet finden und konvertieren."
+msgstr "Kunden im Internet finden und acquirieren."
+
+#: blog/templates/blog/base1.html:124
+msgid "Focused action"
+msgstr "Tatendrang"
+
+#: blog/templates/blog/base1.html:64
+msgid "Forum"
+msgstr "Forum"
+
+#: blog/templates/blog/base1.html:101
+msgid "Get Started"
+msgstr "Jetzt starten"
+
+#: blog/templates/blog/base1.html:73 blog/templates/blog/base1.html:146
+msgid "Get started"
+msgstr "Jetzt starten"
+
+#: blog/templates/blog/base1.html:184
+msgid ""
+"Get the latest insights about effective online strategies, tools and much "
+"more!"
+msgstr ""
+"Trage dich ein um über die letzten Anpassungen und Strategien zu erfahren."
+
+#: blog/templates/blog/base1.html:60 blog/templates/blog/base1.html:171
+msgid "Home"
+msgstr "Start"
+
+#: blog/templates/blog/base1.html:132
+msgid "In development"
+msgstr "Focussiert"
+
+#: blog/templates/blog/base1.html:116
+msgid "Inisghts oriented"
+msgstr "Kontinuierliche Verbesserung"
+
+#: blog/templates/blog/base1.html:183
+msgid "Join Our Newsletter"
+msgstr "Immer auf dem Laufenden bleiben."
+
+#: blog/templates/blog/base1.html:71
+msgid "Logout"
+msgstr "Abmelden"
+
+#: blog/templates/blog/base1.html:69
+msgid "New Post"
+msgstr "Neuer Post"
+
+#: blog/templates/blog/base1.html:175
+msgid "Privacy policy"
+msgstr "Datenschutz-Bestimmungen (in Bearbeitung)"
+
+#: blog/templates/blog/base1.html:70
+msgid "Profile"
+msgstr "Profil"
+
+#: blog/templates/blog/base1.html:74
+msgid "Register"
+msgstr "Registrieren"
 
 #: templates/machina/board_base.html:29
 msgid "Search"
@@ -23,6 +122,63 @@ msgstr "Suche"
 msgid "Sick Leads "
 msgstr "Sick Leads"
 
+#: blog/templates/blog/base1.html:117
+msgid ""
+"Sick Leads aims at providing relevant data for business decision making."
+msgstr ""
+"Sick Leads zielt darauf ab, relevante Daten für die Entscheidungsfindung im "
+"Unternehmen bereitzustellen."
+
+#: blog/templates/blog/base1.html:125
+msgid "Sick Leads gets things done. In less time at reduced cost."
+msgstr ""
+"Sick Leads erledigt die Dinge. In kürzerer Zeit zu reduzierten Kosten."
+
+#: blog/templates/blog/base1.html:145
+msgid ""
+"Sick Leads helps you  find, engage and convert new customers online. It's "
+"your companion that offers you tools, a community of like-minded people and "
+"strategies to help you generate more business online. Start leveraging your "
+"web traffic and boost conversions today."
+msgstr ""
+"Sick Leads hilft Ihnen, neue Kunden online zu finden, zu binden und zu "
+"konvertieren. Es ist Ihr Begleiter, der Ihnen Tools, eine Gemeinschaft von "
+"Gleichgesinnten und Strategien bietet, die Ihnen helfen, mehr Online-"
+"Geschäft zu generieren. Beginnen Sie noch heute mit der Nutzung Ihres Web-"
+"Traffics und steigern Sie die Conversions."
+
+#: blog/templates/blog/base1.html:133
+msgid "Sick Leads is changing and evolving. Exciting things are coming."
+msgstr ""
+"Sick Leads verändert sich und entwickelt sich weiter. Spannende Dinge sind "
+"am Horizont."
+
+#: blog/templates/blog/base1.html:162
+msgid "Sick Ventures"
+msgstr "Sick Ventures"
+
+#: blog/templates/blog/base1.html:109
+msgid "Smart people working and collaborating together. True team spirit."
+msgstr ""
+"Intelligente Menschen, die zusammenarbeiten und zusammenarbeiten. Echter "
+"Teamgeist."
+
+#: templates/machina/board_base.html:54
+msgid "Subscriptions"
+msgstr "Abonnements"
+
+#: blog/templates/blog/base1.html:174
+msgid "Terms of service"
+msgstr "Nutzungsbedingungen"
+
+#: blog/templates/blog/base1.html:144
+msgid "The start of a great journey!"
+msgstr "Der Beginn einer großartigen Reise!"
+
+#: templates/machina/board_base.html:55
+msgid "View my posts"
+msgstr "Meinen Post lesen"
+
 #: blog/templates/blog/base1.html:96
 msgid "With Strategies, Tools and a winning community."
-msgstr "Mit den richtigen Systemen und Support"
+msgstr "Mit System und Strategie"

@@ -57,21 +57,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-            <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
-            <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-            <a class="nav-item nav-link" href="{% url 'blog' %}">Blog</a>
-            <a class="nav-item nav-link" href="/forum">Forum</a>
+            <a class="nav-item nav-link" href="{% url 'index' %}">{% trans "Home" %}</a>
+            <a class="nav-item nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
+            <a class="nav-item nav-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+            <a class="nav-item nav-link" href="{% url 'blog' %}">{% trans "Blog" %}</a>
+            <a class="nav-item nav-link" href="/forum">{% trans "Forum" %}</a>
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-            <a class="nav-item nav-link" href="{% url 'post_create' %}">New Post</a>
-            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-item nav-link" href="{% url 'post_create' %}">{% trans "New Post" %}</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">{% trans "Profile" %}</a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
             {% else %}
-            <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'login' %}">Get started</a>
-            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            <a class="btn btn-primary" class="nav-item nav-link" href="{% url 'login' %}">{% trans "Get started" %}</a>
+            <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
             {% endif %}
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,39 +98,39 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="{% url 'login' %}" class="btn-get-started scrollto">Get Started</a>
+        <a href="{% url 'login' %}" class="btn-get-started scrollto">{% trans "Get Started" %}</a>
       </div>
 
       <div class="row icon-boxes">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
-            <h4 class="title"><a href="">Community driven</a></h4>
-            <p class="description">Smart people working and collaborating together. True team spirit.</p>
+            <h4 class="title"><a href="">{% trans "Community driven" %}</a></h4>
+            <p class="description">{% trans "Smart people working and collaborating together. True team spirit." %}</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
             <div class="icon"><i class="ri-palette-line"></i></div>
-            <h4 class="title"><a href="">Inisghts oriented</a></h4>
-            <p class="description">Sick Leads aims at providing relevant data for business decision making.</p>
+            <h4 class="title"><a href="">{% trans "Inisghts oriented" %}</a></h4>
+            <p class="description">{% trans "Sick Leads aims at providing relevant data for business decision making." %}</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
           <div class="icon-box">
             <div class="icon"><i class="ri-command-line"></i></div>
-            <h4 class="title"><a href="">Focused action</a></h4>
-            <p class="description">Sick Leads gets things done. In less time at reduced cost. </p>
+            <h4 class="title"><a href="">{% trans "Focused action" %}</a></h4>
+            <p class="description">{% trans "Sick Leads gets things done. In less time at reduced cost." %}</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
           <div class="icon-box">
             <div class="icon"><i class="ri-fingerprint-line"></i></div>
-            <h4 class="title"><a href="">In development</a></h4>
-            <p class="description">Sick Leads is changing and evolving. Exciting things are coming.</p>
+            <h4 class="title"><a href="">{% trans "In development" %}</a></h4>
+            <p class="description">{% trans "Sick Leads is changing and evolving. Exciting things are coming." %}</p>
           </div>
         </div>
 
@@ -141,9 +141,9 @@
   <section id="cta" class="cta">
     <div class="container" data-aos="zoom-in">
       <div class="text-center">
-        <h3>The start of a great journey!</h3>
-        <p> Sick Leads helps you  find, engage and convert new customers online. It's your companion that offers you tools, a community of like-minded people and strategies to help you generate more business online. Start leveraging your web traffic and boost conversions today.  </p>
-        <a class="cta-btn" href="{% url 'about' %}">Get started</a>
+        <h3>{% trans "The start of a great journey!" %}</h3>
+        <p>{% trans "Sick Leads helps you  find, engage and convert new customers online. It's your companion that offers you tools, a community of like-minded people and strategies to help you generate more business online. Start leveraging your web traffic and boost conversions today." %}</p>
+        <a class="cta-btn" href="{% url 'about' %}">{% trans "Get started" %}</a>
       </div>
     </div>
   </section><!-- End Cta Section -->
@@ -159,7 +159,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Sick Ventures</h3>
+            <h3>{% trans "Sick Ventures" %}</h3>
             <p>
             <strong>Email:</strong> info@sick-ventures.com<br>
             </p>
@@ -168,11 +168,11 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4> Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">About </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'login' %}">Dashoard</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">{% trans "About" %} </a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'login' %}">{% trans "Dashoard" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">{% trans "Terms of service" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">{% trans "Privacy policy" %}</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
@@ -180,8 +180,8 @@
 
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Get the latest insights about effective online strategies, tools and much more!</p>
+            <h4>{% trans "Join Our Newsletter" %}</h4>
+            <p>{% trans "Get the latest insights about effective online strategies, tools and much more!" %}</p>
             <form enctype="multipart/form-data" method="post" action="/newsletter/daily-info-blogs/subscribe/">
               {% csrf_token %}
               <input type="email" name="email_field" id="id_email_field"><input id="id_submit" name="submit" type="submit" value="Subscribe">
@@ -196,14 +196,14 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>Sick Leads</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Sick Leads</span></strong>. {% trans "All Rights Reserved" %}
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
-          Designed with care
+          {% trans "Designed with care" %}
         </div>
       </div>
     </div>
