@@ -1,11 +1,11 @@
 import datetime
 import time
 
-from facebookads.api import FacebookAdsApi
-from facebookads.adobjects.adaccountuser import AdAccountUser
-from facebookads.adobjects.adaccount import AdAccount
-from facebookads.adobjects.adsinsights import AdsInsights
-from facebookads.exceptions import FacebookRequestError
+from facebook_business.api import FacebookAdsApi
+from facebook_business.adobjects.adaccountuser import AdAccountUser
+from facebook_business.adobjects.adaccount import AdAccount
+from facebook_business.adobjects.adsinsights import AdsInsights
+from facebook_business.exceptions import FacebookRequestError
 
 from collections import Counter
 

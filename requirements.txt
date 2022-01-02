@@ -1,4 +1,8 @@
+aiohttp==3.8.1
+aiosignal==1.2.0
 asgiref==3.4.1
+async-timeout==4.0.2
+attrs==21.4.0
 boto3==1.17.23
 botocore==1.20.23
 certifi==2021.10.8
@@ -7,6 +11,7 @@ chardet==4.0.0
 charset-normalizer==2.0.8
 click==8.0.3
 cryptography==36.0.1
+curlify==2.2.1
 defusedxml==0.7.1
 dj-database-url==0.5.0
 Django==2.2.12
@@ -25,18 +30,21 @@ django-tinymce==3.3.0
 django-translation-manager==1.1.1
 django-widget-tweaks==1.4.9
 djangorestframework==3.9.4
-facebookads==2.11.4
+facebook-business==12.0.1
+frozenlist==1.2.0
 gunicorn==20.0.4
 html5lib==1.1
 idna==3.3
 jmespath==0.10.0
 ldif3==3.1.1
 markdown2==2.4.1
+multidict==5.2.0
 oauthlib==3.1.1
 Pillow==8.1.2
 polib==1.1.1
 psycopg2==2.9.2
 psycopg2-binary==2.8.6
+pycountry==20.7.3
 pycparser==2.21
 PyJWT==2.3.0
 PyPDF2==1.26.0
@@ -61,3 +69,4 @@ urllib3==1.26.3
 webencodings==0.5.1
 whitenoise==5.3.0
 xhtml2pdf==0.2.3
+yarl==1.7.2
