@@ -1,0 +1,20 @@
+@import "vars";
+@import "default";
+
+#dashboard-header {
+    .dropdown-menu {
+        left: initial;
+        right: calc(100% - 60px);
+    }
+}
+#bt-sidebar {
+    max-width: 60px;
+    min-height: calc(100vh - 56px); // full height - header height
+}
+
+@media (min-width: 1024px) {
+    .centered-form {
+        width: 700px;
+        max-width: 100%;
+    }
+}

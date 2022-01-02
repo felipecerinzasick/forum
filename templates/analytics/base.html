@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_css %}
+    <link rel="stylesheet" href="{% static 'main/css/dashboard.css' %}">
+{% endblock %}
+
+{% block header %}
+    <header id="dashboard-header" class="bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="{% url 'analytics:new-campaign' %}">MarketLead</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu-top"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="main-menu-top">
+                <div class="ml-auto">
+                    {% if is_fb_connected %}
+                        <span class="fb_login_button fb_connected">Connected</span>
+                    {% else %}
+                        <a href="{% url "social:begin" "facebook" %}" class="fb_login_button">Connect Facebook</a>
+                    {% endif %}
+                </div>
+                <div class="dropdown ml-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+{% endblock %}
+
+
+{% block main_body %}
+
+    <div id="bt-main-body">
+        <div class="container-fluid">
+            <div class="row">
+                {% include 'includes/analytics-sidebar.html' %}
+                <main class="col" id="bt-main" role="main">
+                    <div id="db-heading" class="border-bottom py-3 col-12">
+                        {% block dashboard_heading %}{% endblock %}
+                    </div>
+                    <div id="db-body" class="col-12">
+                        {% block dashboard_body %}{% endblock %}
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+{% endblock %}

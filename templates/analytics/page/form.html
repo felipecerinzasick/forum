@@ -1,0 +1,74 @@
+{% extends 'analytics/base.html' %}
+
+{% block dashboard_heading %}
+    <header class="d-flex">
+        <span>Campaign/Page</span>
+        <span class="ml-auto font-weight-bold">
+            {% if editing %}Edit
+            {% else %}Add New{% endif %}
+        </span>
+    </header>
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="d-flex flex-column">
+        <h2 class="mx-auto mb-4" style="margin-top: 10%">
+            {% if editing %}Edit{% else %}Create new{% endif %} Campaign Page{% if client_obj %} for <span class="text-primary">{{ client_obj.domain }}</span>{% endif %}:
+        </h2>
+        <div class="d-flex justify-content-center">
+            <form method="post" class="border border-dark p-4 text-right centered-form">
+                {% csrf_token %}
+            
+                {% if form.non_field_errors %}
+                    <div class="text-left border border-danger text-danger p-3 mb-5">
+                        <div class="alert alert-danger">Please fix errors marked below form!</div>
+                        <div>{{ form.non_field_errors }}</div>
+                    </div>
+                {% endif %}
+
+                {% comment %}{% if client_obj %}
+                    <input type="hidden" name="{{ form.host.html_name }}" value="{{ client_obj.pk }}">
+                {% else %}
+                    <div class="form-group row">
+                        <label for="{{ form.host.id_for_label }}" class="col-sm-2 col-form-label">{{ form.host.label }}</label>
+                        <div class="col-sm-10 text-left">
+                            <select class="form-control"
+                                    name="{{ form.host.html_name }}"
+                                    id="{{ form.host.id_for_label }}">
+                                {% for choice in form.host.field.choices %}
+                                    <option value="{{ choice.0 }}" {% if form.host.value == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+                                {% endfor %}
+                            </select>
+                            {% if form.host.errors %}
+                                <div class="text-danger form-input-error">{{ form.host.errors|join:"<br>" }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}{% endcomment %}
+
+                <div class="form-group row">
+                    <label for="{{ form.name.id_for_label }}" class="col-sm-2 col-form-label">{{ form.name.label }}</label>
+                    <div class="col-sm-10 text-left">
+                        <input type="text" class="form-control" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}" value="{{ form.name.value|default:"" }}">
+                        {% if  form.name.errors %}
+                            <div class="text-danger form-input-error">{{ form.name.errors|join:"<br>" }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="{{ form.keyword.id_for_label }}" class="col-sm-2 col-form-label">{{ form.keyword.label }}</label>
+                    <div class="col-sm-10 text-left">
+                        <input type="text" class="form-control" name="{{ form.keyword.name }}" id="{{ form.keyword.id_for_label }}" value="{{ form.keyword.value|default:"" }}">
+                        <small class="form-text text-muted font-italic">{{ form.keyword.help_text }}</small>
+                        {% if  form.keyword.errors %}
+                            <div class="text-danger form-input-error">{{ form.keyword.errors|join:"<br>" }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-ml mt-3">{% if editing %}Update{% else %}Create{% endif %}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

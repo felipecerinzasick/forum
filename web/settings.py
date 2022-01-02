@@ -102,6 +102,14 @@ INSTALLED_APPS = [
     'machina.apps.forum_permission',
     "translation_manager",
 
+    # 3rd party
+    'corsheaders',
+    'social_django',
+    # project's custom app
+    'analytics',
+    'fb_api',
+
+
 ]
 
 MIDDLEWARE = [
@@ -124,6 +132,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates/machina'),
             MACHINA_MAIN_TEMPLATE_DIR,],
         #'APP_DIRS': True,
@@ -227,6 +236,7 @@ from machina import MACHINA_MAIN_STATIC_DIR
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
+    os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'web/static'),
     MACHINA_MAIN_STATIC_DIR]
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
@@ -260,6 +270,37 @@ LOGIN_URL = 'login'
 # Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Python Social Auth
+# SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '5.0'
+SOCIAL_AUTH_STRATEGY = 'social_django.strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social_django.models.DjangoStorage'
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('FACEBOOK_APP_ID', '')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_APP_SECRET', '')
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'manage_pages', 'ads_management', 'business_management', 'ads_read']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id,name,email,accounts',
+}
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    #'ml_user.middleware.EmailAuthBackend',
+)
 
 # Machina settings
 MACHINA_FORUM_NAME = "Sick Blog"
@@ -281,4 +322,40 @@ TINYMCE_DEFAULT_CONFIG = {
     "custom_undo_redo_levels": 10,  # To force a specific language instead of the Django current language.
 }
 SITE_ID = 1
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] ' +
+                       'pathname=%(pathname)s lineno=%(lineno)s ' +
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'testlogger': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        }
+    }
+}
+
+
 django_heroku.settings(locals(), staticfiles=False)

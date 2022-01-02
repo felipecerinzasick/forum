@@ -9,6 +9,8 @@ from machina import urls as machina_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('analytics/', include('analytics.urls', namespace='analytics')),
+    path('social/', include('social_django.urls', namespace='social')),
     #forum urls
     path('i18n/', include('django.conf.urls.i18n')),
     path("set_language/<str:user_language>/", set_language_from_url, name="set_language_from_url"),

@@ -1,0 +1,118 @@
+{% extends 'analytics/base.html' %}
+
+{% load ml_custom_tags %}
+
+{% block dashboard_heading %}
+    <header class="d-flex">
+        <span>Campaign <br> <small>Site: {{ site.url }}</small></span>
+        <span class="ml-auto font-weight-bold">Details</span>
+    </header>
+{% endblock %}
+
+{% block dashboard_body %}
+    {% if selected_ad_acc %}
+        <div>
+            <div>
+                Selected facebook Ad account: {{ selected_ad_acc.ads_id }}
+                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ad-account-selection-modal">Change</button>
+                <br>
+                <a href="?pdf=true" target="_blank" class="btn btn-success btn-sm">Generate pdf report</a>
+                <a href="?pdf=true&download=true" target="_blank" class="btn btn-success btn-sm">Download pdf report</a>
+            </div>
+            <hr>
+            <form method="get" class="row">
+                <div class="input-group mb-3 col-lg-3 col-md-6">
+                    <select class="custom-select" name="last_days">
+                        <option selected disabled>Select days</option>
+                        <option value="1">Today</option>
+                        <option value="7">Last 7 days</option>
+                        <option value="30">Last month</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            {% if ad_data %}
+                <hr>
+                <div>
+                    <p>Total spend (last {{ last_days }} days): {{ ad_data.spend }} {{ ad_data.account_currency|lower }}</p>
+                </div>
+            {% endif %}
+            
+        </div>
+    {% endif %}
+    <div class="d-flex flex-column">
+        <h2 class="mx-auto mb-4" style="margin-top: 10%">Campaign (last {{ last_days }} days):</h2>
+        <div class="d-flex justify-content-center flex-column text-center">
+            <div class="row w-100">
+                {% for pg in object_list %}
+                    <div class="col">
+                        <div class="card border-dark">
+                            <div class="card-header alert-dismissible">
+                                <h3>{{ pg.name }}</h3>
+                                <a href="{% url 'analytics:delete-page' pg.pk %}" class="close">
+                                    <span aria-hidden="true">&times;</span>
+                                </a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Visitors: {% get_visit_count_by_day pg last_days %}</li>
+                                <li class="list-group-item">Bounce rate: {% get_bounce_rate_by_day pg last_days %}</li>
+                                {% if not forloop.last and ad_data.spend %}
+                                    <li class="list-group-item">CPC:  {% get_cpc pg ad_data.spend last_days %} {{ ad_data.account_currency }}</li>
+                                {% elif forloop.last and ad_data.spend %}
+                                    <li class="list-group-item">CPA:  {% get_cpc pg ad_data.spend last_days %} {{ ad_data.account_currency }}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="py-4">
+                <a class="btn btn-primary" href="{% url 'analytics:new-page' %}">Create New Page</a>
+            </div>
+        </div>
+    </div>
+
+    {% if ad_accounts %}
+        <div class="modal fade" id="ad-account-selection-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Select Ad Account (click to select)</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            {% for adac in ad_accounts %}
+                                <li>
+                                    {% if adac.is_selected %}
+                                        <span>{{ adac.account_id }}</span>
+                                    {% else %}
+                                        <a href="?ad_account={{ adac.account_id }}">{{ adac.account_id }}</a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer_extra_js %}
+    {% if ad_accounts and not selected_ad_acc %}
+        <script>
+            $(document).ready(function () {
+                $('#ad-account-selection-modal').modal('show');
+            });
+        </script>
+    {% endif %}
+{% endblock %}
