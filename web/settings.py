@@ -267,6 +267,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 
+# CORS settings
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/traffic/.*$'
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+]
+
 # Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
