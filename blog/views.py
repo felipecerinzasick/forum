@@ -84,6 +84,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+def impressum(request):
+    return render(request, 'blog/impressum.html', {'title': 'Impressum'})
+
+
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 

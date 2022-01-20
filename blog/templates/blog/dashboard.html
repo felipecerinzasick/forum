@@ -1,11 +1,27 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-<div class="card w-100">
-  <div class="card-body">
-
-
-
+<style>
+.PXlarHSsuCPnwMqPtjzN {
+position: relative;
+top: 21px;
+left: -11px;
+z-index: 1;
+display: none;
+width: 160px;
+padding: 9px 0 6px 0;
+color: #ffffff;
+font-weight: bold;
+line-height: 1.2;
+text-align: center;
+text-decoration: none;
+background-color: #ffffff;
+box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.2);
+transform: rotate(45deg);
+transition: all 0.1s ease-in;
+pointer-events: auto;
+}
+</style>
 <center>
 
 
@@ -13,17 +29,18 @@
     <h1 class="display-5">Digitale Geschäftsprozesse verbessern, Umsatz steigern. </h1>
     <p class="lead">Ich lade Sie dazu ein, die Zukunft des Einzelhandels mitzugestalten. Die Vision in der Unternehmen neue Technologien und Wege der Kundenaquise nutzen ist Ziel dieser Plattform. Um Chancen zu erkunden, bedarf es Pioniere wie Sie.
       <br>
-      Ich freue mich darauf, Sie kennenzulernen.
+      Ich freue mich auf den Austausch
       <br>
       <br>
-      Mit freundlichen Grüßen
+
         </div>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sick_leads" style="min-width:320px;height:630px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly Inline-Widget Beginn -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/sick_leads?hide_gdpr_banner=1" style="min-width:320px;height:630px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- Calendly Inline-Widget Ende -->
 <br></center>
 
 </div>
-</div>
-</div>
+
 
 {% endblock content %}

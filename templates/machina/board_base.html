@@ -7,6 +7,9 @@
 
 {% block css %}
 {{ block.super }}
+
+{% if user.is_authenticated %}
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -79,9 +82,9 @@
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-contact">
-          <h3>Sick Ventures</h3>
+          <h3>Sick Leads</h3>
           <p>
-          <strong>Email:</strong> info@sick-ventures.com<br>
+          <strong>Email:</strong> info@sick-leads.com<br>
           </p>
         </div>
 
