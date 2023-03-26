@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 {% load i18n%}
 <!DOCTYPE html>
 <html>
@@ -89,8 +90,13 @@
       </div>
     </nav>
   </header>
+
+  
+  
+
   <main role="main" class="container">
     <div class="row">
+    {% if user.is_authenticated %}
       <div class="col-md-12">
         {% if messages %}
         {% for message in messages %}
@@ -104,9 +110,32 @@
         <!-- Content here -->
       </div>
       </div>
+      {% else %}
+      <div class="col-md-12">
+      <div class="content-section">
+          <form method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                  <legend class="border-bottom mb-4">Join Today</legend>
+                  {{ form|crispy }}
+              </fieldset>
+              <div class="form-group">
+                  <button class="btn btn-outline-info" type="submit">Sign Up</button>
+              </div>
+          </form>
+          <div class="border-top pt-3">
+              <small class="text-muted">
+                  Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+              </small>
+          </div>
+      </div>
+      </div>
+      {% endif %}
 
     </div>
+
   </main>
+
 
 
 
