@@ -113,17 +113,10 @@
       {% else %}
       <div class="jumbotron">
   <h1 class="display-4">Hello, dear Shapers and Builders</h1>
-  <p class="lead">This is a  message informing you that the community section is currently undergoing changes.</p>
+  <p class="lead">This is a  message informing you that the community section is currently under development.</p>
   <hr class="my-4">
-  <p>In case you want to be informed when it's available, feel free to leave your e-mail below.</p>
-    <div class="col-lg-4 col-md-6 footer-newsletter">
-          <h4>{% trans "Join Our Newsletter" %}</h4>
-          <p>{% trans "Get the latest insights about effective online strategies, tools and much more!" %}</p>
-          <form enctype="multipart/form-data" method="post" action="/newsletter/daily-info-blogs/subscribe/">
-            {% csrf_token %}
-            <input type="email" name="email_field" id="id_email_field"><input id="id_submit" name="submit" type="submit" value="Subscribe">
-          </form>
-        </div>
+  <p>In case you want to be informed on updates, feel free to leave your e-mail below in the footer.</p>
+   
 </div>
       {% endif %}
 
